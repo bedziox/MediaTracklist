@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MediaTracklist.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/user")]
     [ApiController]
     public class UserController : Controller
     {
