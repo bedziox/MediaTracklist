@@ -21,11 +21,10 @@ namespace MediaTracklist.Controllers
             _configuration = configuration;
         }
 
-        public static User user = new User();
-
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register(UserDto request)
         {
+            User user = new User();
             CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
             user.Username = request.Username;
             user.PasswordHash = passwordHash;
@@ -37,6 +36,7 @@ namespace MediaTracklist.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(UserDto request)
         {
+            User user = new User(); // To be changed to 
             if (user.Username != request.Username)
             {
                 return BadRequest("User not found");
